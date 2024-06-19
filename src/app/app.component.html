@@ -1,0 +1,21 @@
+<app-header></app-header>
+<main>
+  <section>
+    <div id="dropdown-container">
+      <select id="user-dropdown" (change)="onUserSelect($event)">
+        @for (user of users; track user.id) {
+          <option [value]="user.id">{{user.name}}</option>
+        }
+      </select>
+    </div>
+    <ul id="users">
+      @for (user of users; track user.id) {
+        <li><app-users [user]="user" [selected]="selecteduser ? user.id === selecteduser.id : false" (select)="selectedUser($event)"></app-users></li>
+      }
+    </ul>
+  </section>
+  <app-tasks [user]="selecteduser"></app-tasks>
+</main>
+<router-outlet></router-outlet>
+
+

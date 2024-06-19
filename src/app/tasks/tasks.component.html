@@ -1,0 +1,21 @@
+@if (user) {
+  @if (addingTask) {
+    <app-newtask (cancel)="cancelTask()" [userId]="user.id" (taskAdd)="cancelTask()"></app-newtask>
+  }
+  <section id="tasks">
+    <header>
+      <h3>{{user.name}}</h3>
+      <menu>
+        <button (click)="addingNewTask()">Add Task</button>
+      </menu>
+    </header>
+    <ul>
+      @for (task of selectedUserTask; track task.id) {
+        <li><app-task [task]="task"></app-task></li>
+      }
+    </ul>
+  </section>
+}
+@else {
+  <h2 id="fallback">Enter a user To Manage</h2>
+}

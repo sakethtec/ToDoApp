@@ -1,0 +1,130 @@
+/* Main container styling */
+main {
+  width: 90%;
+  max-width: 50rem;
+  margin: 2.5rem auto;
+  display: grid;
+  grid-auto-flow: row;
+  gap: 2rem;
+}
+
+/* Dropdown container styling */
+#dropdown-container {
+  display: none; /* Initially hidden */
+  text-align: center; /* Center the dropdown */
+}
+
+/* Dropdown styling */
+#dropdown {
+  position: relative;
+  display: inline-block;
+}
+
+#dropdown-button {
+  width: 100%;
+  max-width: 100px; /* Adjust the width as needed */
+  margin: 1rem auto;
+  padding: 0.5rem;
+  font-size: 1rem;
+  background-color: #3a2c54; /* Matching background color */
+  border-radius: 8px; /* Rounded corners */
+  border: 1px solid #9965dd; /* Border color */
+  color: white; /* Text color */
+  cursor: pointer;
+  transition: background-color 0.3s ease; /* Smooth transition for hover effect */
+}
+
+#dropdown-button:hover {
+  background-color: #9965dd; /* Hover background color */
+}
+
+/* Dropdown options styling */
+#dropdown-options {
+  display: none;
+  position: absolute;
+  top: 100%;
+  left: 0;
+  right: 0;
+  background-color: #3a2c54;
+  border: 1px solid #9965dd;
+  border-radius: 8px;
+  margin-top: 0.5rem;
+  z-index: 1;
+}
+
+#dropdown:hover #dropdown-options {
+  display: block;
+}
+
+#user-dropdown {
+  width: 100%;
+  padding: 0.5rem;
+  font-size: 1rem;
+  background-color: #3a2c54; /* Matching background color */
+  border-radius: 8px; /* Rounded corners */
+  border: none; /* Remove the default border */
+  color: white; /* Text color */
+}
+
+/* Users list styling */
+#users {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  gap: 0.5rem;
+  overflow: auto;
+  flex-wrap: wrap;
+}
+
+/* Individual user item styling */
+#users > li {
+  flex-basis: calc(50% - 0.5rem); /* Adjust item width to half of the container with gap */
+}
+
+/* Fallback styling */
+#fallback {
+  font-weight: bold;
+  font-size: 1.15rem;
+  margin: 0;
+  text-align: center;
+}
+/* Styles for header component */
+app-header {
+  width: 100%;
+  padding: 1rem;
+  color: white;
+  text-align: center;
+  font-size: 1.5rem;
+}
+
+/* Responsive styles */
+@media (max-width: 422px) {
+  #dropdown-container {
+    display: block; /* Show the dropdown on small screens */
+  }
+
+  #users {
+    display: none; /* Hide the list on small screens */
+  }
+  app-taks{
+    width: 100%;
+    display: block;
+  }
+}
+
+@media (min-width: 768px) {
+  main {
+    margin: 4rem auto;
+    grid-template-columns: 1fr 3fr;
+  }
+
+  #users {
+    flex-direction: column;
+  }
+
+  #fallback {
+    font-size: 1.5rem;
+    text-align: left;
+  }
+}
